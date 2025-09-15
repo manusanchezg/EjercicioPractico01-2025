@@ -36,6 +36,25 @@ namespace EjercicioPractico01_2025.Domain
             PaymentMethod = new PaymentMethod();
             Details = new List<InvoiceDetail>();
         }
+
+        public void AddDetail(InvoiceDetail detail)
+        {
+            if (detail != null)
+            {
+                Details.Add(detail);
+            }
+        }
+
+        public void RemoveDetail(int index)
+        {
+            Details.RemoveAt(index);
+        }
+
+        public void RemoveDetail(InvoiceDetail detail)
+        {
+            Details.Remove(detail);
+        }
+
         public override string ToString()
         {
             return $"Invoice Id: {Id}, Date: {Date}, Customer: {Customer}, Payment Method: {PaymentMethod}, Total: {Total}";

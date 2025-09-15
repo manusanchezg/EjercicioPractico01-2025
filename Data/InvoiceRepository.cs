@@ -19,7 +19,7 @@ namespace EjercicioPractico01_2025.Data
                     new Parameter("@PaymentMethodId", entity.PaymentMethod.Id),
                     // Agregar más parámetros según sea necesario
                 };
-                DataHelper.GetInstance().ExecuteSPQuery("AGREGAR_FACTURA", parameters);
+                DataHelper.GetInstance().ExecuteSPQuery("MODIFICAR_FACTURAS", parameters);
                 return true; // Retorna true si la operación fue exitosa
             }
             catch (Exception ex)
@@ -31,7 +31,13 @@ namespace EjercicioPractico01_2025.Data
 
         public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            // Aquí iría la lógica para eliminar una factura por su ID
+            List<Parameter> parameters = new()
+            {
+                new Parameter("@Id", id)
+            };
+
+            return false;
         }
 
         public List<Invoice> GetAll()
