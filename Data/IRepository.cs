@@ -5,7 +5,7 @@
         bool Add(T entity);
         bool Update(T entity);
         bool Delete(D id);
-        List<T> GetAll();
-        T GetById(D id);
+        List<T>? GetAll();
+        T? GetById(D id);
     }
 }
