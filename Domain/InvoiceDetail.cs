@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace EjercicioPractico01_2025.Domain
 {
-    internal class InvoiceDetails
+    internal class InvoiceDetail
     {
+        public int Id { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
         public decimal Subtotal
@@ -17,12 +18,13 @@ namespace EjercicioPractico01_2025.Domain
                 return Product.Price * Quantity;
             }
         }
-        public InvoiceDetails(Product product, int quantity)
+        public InvoiceDetail(int id, Product product, int quantity)
         {
+            Id = id;
             Product = product;
             Quantity = quantity;
         }
-        public InvoiceDetails()
+        public InvoiceDetail()
         {
             Product = new Product();
             Quantity = 0;

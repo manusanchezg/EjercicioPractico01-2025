@@ -11,7 +11,22 @@ namespace EjercicioPractico01_2025.Data
     {
         public bool Add(Invoice entity)
         {
-            throw new NotImplementedException();
+            try { 
+                List<Parameter> parameters = new()
+                {
+                    new Parameter("@Date", entity.Date),
+                    new Parameter("@Customer", entity.Customer),
+                    new Parameter("@PaymentMethodId", entity.PaymentMethod.Id),
+                    // Agregar más parámetros según sea necesario
+                };
+                DataHelper.GetInstance().ExecuteSPQuery("AGREGAR_FACTURA", parameters);
+                return true; // Retorna true si la operación fue exitosa
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al agregar la factura: {ex.Message}");
+                return false; // Retorna false si hubo un error
+            }
         }
 
         public bool Delete(int id)

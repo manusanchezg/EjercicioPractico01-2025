@@ -12,7 +12,7 @@ namespace EjercicioPractico01_2025.Domain
         public DateTime Date { get; set; }
         public string Customer { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
-        public List<InvoiceDetails> Details { get; set; }
+        public List<InvoiceDetail> Details { get; set; }
         public decimal Total
         {
             get
@@ -20,7 +20,7 @@ namespace EjercicioPractico01_2025.Domain
                 return Details.Sum(d => d.Subtotal);
             }
         }
-        public Invoice(int id, DateTime date, string customer, PaymentMethod paymentMethod, List<InvoiceDetails> details)
+        public Invoice(int id, DateTime date, string customer, PaymentMethod paymentMethod, List<InvoiceDetail> details)
         {
             Id = id;
             Date = date;
@@ -34,7 +34,7 @@ namespace EjercicioPractico01_2025.Domain
             Date = DateTime.Now;
             Customer = string.Empty;
             PaymentMethod = new PaymentMethod();
-            Details = new List<InvoiceDetails>();
+            Details = new List<InvoiceDetail>();
         }
         public override string ToString()
         {
